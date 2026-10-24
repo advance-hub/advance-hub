@@ -25,10 +25,10 @@
 ## 精选作品
 
 <p>
-  <a href="https://github.com/advance-hub/vue3-number-scroll"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/cards/vue3-number-scroll-dark.svg" /><img src="./assets/cards/vue3-number-scroll-light.svg" width="425" alt="vue3-number-scroll：Vue 3 数字滚动组件" /></picture></a>
-  <a href="https://github.com/advance-hub/markview-vue"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/cards/markview-vue-dark.svg" /><img src="./assets/cards/markview-vue-light.svg" width="425" alt="markview-vue：Vue Markdown 展示组件" /></picture></a>
-  <a href="https://github.com/advance-hub/fe-link"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/cards/fe-link-dark.svg" /><img src="./assets/cards/fe-link-light.svg" width="425" alt="fe-link：本地 npm 包联调工具" /></picture></a>
-  <a href="https://github.com/advance-hub/mind-map-components"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/cards/mind-map-components-dark.svg" /><img src="./assets/cards/mind-map-components-light.svg" width="425" alt="mind-map-components：Vue / React 思维导图组件" /></picture></a>
+  <a href="https://github.com/advance-hub/vue3-number-scroll"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/cards/vue3-number-scroll-dark.svg" /><img src="./assets/cards/vue3-number-scroll-light.svg" width="410" alt="vue3-number-scroll：Vue 3 数字滚动组件" /></picture></a>
+  <a href="https://github.com/advance-hub/markview-vue"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/cards/markview-vue-dark.svg" /><img src="./assets/cards/markview-vue-light.svg" width="410" alt="markview-vue：Vue Markdown 展示组件" /></picture></a>
+  <a href="https://github.com/advance-hub/fe-link"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/cards/fe-link-dark.svg" /><img src="./assets/cards/fe-link-light.svg" width="410" alt="fe-link：本地 npm 包联调工具" /></picture></a>
+  <a href="https://github.com/advance-hub/mind-map-components"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/cards/mind-map-components-dark.svg" /><img src="./assets/cards/mind-map-components-light.svg" width="410" alt="mind-map-components：Vue / React 思维导图组件" /></picture></a>
 </p>
 
 <details>
