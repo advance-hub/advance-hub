@@ -1,0 +1,75 @@
+name: 更新主页统计
+
+on:
+  schedule:
+    - cron: "17 1 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: profile-stats
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: main
+
+      - name: 生成浅色统计卡片
+        uses: stats-organization/github-readme-stats-action@2c498845f71017821efaad14293ebc736156ef21 # v2
+        with:
+          card: stats
+          options: username=advance-hub&show_icons=true&disable_animations=true&theme=default&title_color=1f2328&icon_color=0969da&text_color=57606a&border_color=d1d9e0&ring_color=0969da&custom_title=GitHub%20Stats
+          path: assets/stats/overview-light.svg
+          core_version: 2.2.1
+          fail_on_error: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 生成深色统计卡片
+        uses: stats-organization/github-readme-stats-action@2c498845f71017821efaad14293ebc736156ef21 # v2
+        with:
+          card: stats
+          options: username=advance-hub&show_icons=true&disable_animations=true&theme=github_dark&title_color=f0f6fc&icon_color=58a6ff&text_color=b1bac4&border_color=3d444d&ring_color=58a6ff&custom_title=GitHub%20Stats
+          path: assets/stats/overview-dark.svg
+          core_version: 2.2.1
+          fail_on_error: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 生成浅色语言卡片
+        uses: stats-organization/github-readme-stats-action@2c498845f71017821efaad14293ebc736156ef21 # v2
+        with:
+          card: top-langs
+          options: username=advance-hub&layout=compact&langs_count=6&card_width=315&disable_animations=true&theme=default&title_color=1f2328&text_color=57606a&border_color=d1d9e0&custom_title=Languages
+          path: assets/stats/languages-light.svg
+          core_version: 2.2.1
+          fail_on_error: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 生成深色语言卡片
+        uses: stats-organization/github-readme-stats-action@2c498845f71017821efaad14293ebc736156ef21 # v2
+        with:
+          card: top-langs
+          options: username=advance-hub&layout=compact&langs_count=6&card_width=315&disable_animations=true&theme=github_dark&title_color=f0f6fc&text_color=b1bac4&border_color=3d444d&custom_title=Languages
+          path: assets/stats/languages-dark.svg
+          core_version: 2.2.1
+          fail_on_error: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # 四张卡片全部成功才提交；数据接口失败时保留上一版。
+      - name: 提交统计更新
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/stats/*.svg
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(profile): 更新公开 GitHub 统计卡片"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
